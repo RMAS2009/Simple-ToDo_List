@@ -1,0 +1,31 @@
+<%- include("./partials/header.ejs") %>
+
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">ToDo App</a>
+</nav>
+
+<div class="container mt-5">
+  <form action="/add/todo" method="POST" class="d-flex">
+    <input
+      type="text"
+      name="todo"
+      id=""
+      class="form-control"
+      placeholder="Enter ToDo"
+    />
+    <input type="submit" value="Add Todo" class="btn btn-md btn-primary mx-2" />
+  </form>
+
+  <ul class="list-group my-5">
+    <% todo.forEach(todos => { %>
+
+    <li class="list-group-item"><%= todos.todo %></li>
+    <a href="/delete/todo/<%= todos._id %> " class="btn btn-danger btn-sm"
+      >Delete</a
+    >
+
+    <% }) %>
+  </ul>
+</div>
+
+<%- include("./partials/footer.ejs") %>
